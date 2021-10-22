@@ -1,3 +1,5 @@
+import { List } from "@chakra-ui/react";
+
 import { TodoTitle } from "./TodoTitle";
 
 import { TodoItem } from "./TodoItem";
@@ -5,6 +7,7 @@ import { TodoItem } from "./TodoItem";
 
 export const TodoList = ({ 
     todoList,
+    fontSize,
     toggleTodoListItemStatus,
     deleteTodoListItem,
     title,
@@ -13,8 +16,8 @@ export const TodoList = ({
     <>
       {todoList.length !== 0 && (
         <>
-        <TodoTitle title={title} as={as} />
-        <ul> 
+        <TodoTitle title={title} as={as} fontSize={fontSize} mt="12" />
+        <List w="full"> 
         {todoList.map((todo) => (
           <TodoItem 
             todo={todo} 
@@ -23,7 +26,7 @@ export const TodoList = ({
             deleteTodoListItem={deleteTodoListItem}
             />
         )) }
-        </ul>
+        </List>
         </>
 
       )}

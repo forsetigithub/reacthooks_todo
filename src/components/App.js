@@ -1,4 +1,6 @@
-import React,{ useState,useEffect, useRef } from "react";
+import React,{  useRef } from "react";
+
+import { Container } from "@chakra-ui/layout";
 
 import { useTodo } from "../hooks/useTodo";
 
@@ -7,6 +9,7 @@ import { TodoTitle } from "./TodoTitle";
 import { TodoAdd } from "./TodoAdd";
 
 import { TodoList } from "./TodoList";
+import { AddIcon } from "@chakra-ui/icons";
 
 
 function App() {
@@ -37,29 +40,38 @@ function App() {
   });
 
   return (
+
     <React.Fragment>
-      <TodoTitle title="TODO進捗管理" as="h1" />
+      <Container centerContent p={{ base: "4", md: "6"}} maxWidth="3xl" >
+
+      <TodoTitle title="TODO進捗管理" as="h1" fontSize={{base: "2xl", md: "3xl"}} />
 
       {/* <textarea ref={inputEl} />
 
       <button onClick={handleAddTodoListItem}>+ TODOを追加</button> */}
 
-      <TodoAdd inputEL={inputEl} handleAddTodoListItem={handleAddTodoListItem} />
+      <TodoAdd placeholder="ADD TODO" leftIcon={<AddIcon />} buttonText="TODOを追加" inputEL={inputEl} handleAddTodoListItem={handleAddTodoListItem} />
 
-      <TodoTitle title="未完了TODOリスト" as="h2" />
+
       <TodoList 
         todoList={inCompletedList} 
         toggleTodoListItemStatus={toggleTodoListItemStatus}
         deleteTodoListItem={deleteTodoListItem}
+        title="未完了TODOリスト" 
+        as="h2"
+        fontSize={{ base: "xl", md: "2xl"}}
         />
 
-      <TodoTitle title="完了TODOリスト" as="h2" />
+
       <TodoList 
         todoList={completedList} 
         toggleTodoListItemStatus={toggleTodoListItemStatus}
         deleteTodoListItem={deleteTodoListItem}
+        title="完了TODOリスト" 
+        as="h2"
+        fontSize={{ base: "xl", md: "2xl"}}
         />
-
+      </Container>
     </React.Fragment>
   );
 }
