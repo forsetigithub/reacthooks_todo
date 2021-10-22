@@ -24,16 +24,7 @@ function App() {
     addTodoListItem(inputEl.current.value);
     inputEl.current.value = "";
   };
-  // const [todoList, setTodoList] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await axios.get(todoDataUrl);
-
-  //     setTodoList(response.data);
-  //   };
-  //   fetchData();
-  // }, []);
 
   console.log(todoList);
 
