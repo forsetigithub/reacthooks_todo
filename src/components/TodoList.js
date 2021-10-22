@@ -3,7 +3,8 @@ import { TodoTitle } from "./TodoTitle";
 import { TodoItem } from "./TodoItem";
 
 
-export const TodoList = ({ todoList,
+export const TodoList = ({ 
+    todoList,
     toggleTodoListItemStatus,
     deleteTodoListItem,
     title,
